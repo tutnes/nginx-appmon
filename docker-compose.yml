@@ -7,22 +7,22 @@ services:
     environment:
       DT_SERVER_NAME: "dtserver"
       #DT_SERVER_LICENSE_KEY_FILE_URL: "${DT_SERVER_LICENSE_KEY_FILE_URL}"
-      HOST_NAME: "docker-dtserver"
+      HOST_NAME: "dtserver"
     #volumes:
     #  - "/tmp/log/dynatrace/servers/dtserver:/dynatrace/log/server/dtserver"
+    restart: always
   nginx:
     restart: always
     build: ./nginx
     depends_on:
         - dtserver
-    #volumes:
-    #  - "./nginx/:/etc/nginx"
+    volumes:
+      - "./nginx/:/etc/nginx"
     container_name: "appmon_lb"
     hostname: "appmon_lb"
     networks:
       - appmon_sandbox
     ports: 
-      - "2020:2020" # Dynatrace Clients (TCP)
       - "2021:2021" # Dynatrace Clients (TCP with SSL)
       - "8020:8020" # Dynatrace Web Server (HTTP)
       - "8021:8021" # Dynatrace Web Server (HTTPS)
