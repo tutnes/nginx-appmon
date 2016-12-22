@@ -11,7 +11,7 @@ services:
     #volumes:
     #  - "/tmp/log/dynatrace/servers/dtserver:/dynatrace/log/server/dtserver"
   nginx:
-    #restart: always
+    restart: always
     build: ./nginx
     depends_on:
         - dtserver
