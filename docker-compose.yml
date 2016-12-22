@@ -19,15 +19,13 @@ services:
         - dtserver
     volumes:
       - "./nginx/:/etc/nginx"
-    container_name: "appmon_lb"
-    hostname: "appmon_lb"
     networks:
       - appmon_sandbox
     ports: 
+      - "8000:8000" # Test port
       - "2021:2021" # Dynatrace Clients (TCP with SSL)
       - "8020:8020" # Dynatrace Web Server (HTTP)
       - "8021:8021" # Dynatrace Web Server (HTTPS)
       - "9911:9911" # Dynatrace Web UI (HTTPS)
-      #- "9998:9998" # Dynatrace Agents (TCP)
 networks:
   appmon_sandbox:
