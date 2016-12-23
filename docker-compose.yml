@@ -25,6 +25,7 @@ services:
       - "8000:8000" # Test port
       - "2021:2021" # Dynatrace Clients (TCP with SSL)
       - "8020:8020" # Dynatrace Web Server (HTTP)
+      - "6699:6699" # Dynatrace Collector listening
       - "8021:8021" # Dynatrace Web Server (HTTPS)
       - "9911:9911" # Dynatrace Web UI (HTTPS)
 networks:
