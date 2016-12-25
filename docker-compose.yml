@@ -8,6 +8,8 @@ services:
       DT_SERVER_NAME: "dtserver"
       #DT_SERVER_LICENSE_KEY_FILE_URL: "${DT_SERVER_LICENSE_KEY_FILE_URL}"
       HOST_NAME: "dtserver"
+    expose:
+      - "9910" #Web UI with http
     #volumes:
     #  - "/tmp/log/dynatrace/servers/dtserver:/dynatrace/log/server/dtserver"
     restart: always
